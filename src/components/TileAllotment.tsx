@@ -1,6 +1,6 @@
 
 export default  class TileAllotment  {
-    static MAX_TILES = 2;
+    static MAX_TILES = 3;
     private tiles: { [id: number]: number } = {};
     public tileStates: {[id: number]: boolean } = {};
     acquireTileIndex(tileId: number): number {
@@ -19,7 +19,7 @@ export default  class TileAllotment  {
     }
   
     releaseTileIndex(tileId: number): number {
-      for (let index = 1; index < TileAllotment.MAX_TILES; index++) {
+      for (let index = 0; index < TileAllotment.MAX_TILES; index++) {
         if (this.tiles[index] === tileId) {
           delete this.tiles[index];
           return index;
